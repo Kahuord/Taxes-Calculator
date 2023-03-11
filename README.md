@@ -1,4 +1,4 @@
-# By_GPT_TaxesCal-ulate
+# By_GPT_TaxesCalculate
 Taxes Calсulated code created by chatGPT
 I just came up with an idea and added some code
 
