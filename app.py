@@ -1,19 +1,26 @@
 from flask import Flask, render_template, request
-from nologi import calculate_salary, minimum_income
-
+#from nologi import calculate_salary, minimum_income
+from taxes import calculate_salary_izv_voz_inv
+podohod_nalog_salary = 1667
+sos_nalog_rabotafatel = 0.2359
+poslina_riska_rabotofatela = 0.36
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
 def salary_calculator():
     if request.method == 'POST':
-        age = int(request.form.get('age'))
+        pension = int(request.form.get('pension'))
         salary = int(request.form.get('salary'))
         disability = int(request.form.get('disability'))
+        izv = int(request.form.get('izv'))
 
-        net_salary = calculate_salary(salary, disability, age, minimum_income)
-        tax_amount = salary - net_salary
+        salary_Netto =round(calculate_salary_izv_voz_inv(salary, izv, pension, disability),2)
+        nalog_rabotofatela = salary * sos_nalog_rabotafatel
+        employers_expenses =round(salary + nalog_rabotofatela + poslina_riska_rabotofatela, 2)
+        tax_amount =round(salary - salary_Netto, 2)
 
-        return render_template('result.html', salary=salary, net_salary=net_salary, tax_amount=tax_amount)
+        return render_template('result.html', salary=salary, salary_Netto=salary_Netto, tax_amount=tax_amount,
+                               employers_expenses=employers_expenses)
     else:
         return render_template('index.html')
 
