@@ -7,13 +7,20 @@
     <h1>Salary Calculator</h1>
     <form method="POST" action="/">
       <label for="salary">Salary (EUR):</label><br>
-      <input type="number" id="salary" name="salary" required><br>
+      <input type="number" id="salary" name="salary" required><br><br>
 
-      <label for="age">Age:</label><br>
-      <input type="number" id="age" name="age" required><br>
+      <label for="izv">Number of dependents:</label><br>
+      <input type="number" id="izv" name="izv" required><br><br>
+
+      <label for="pension">Pension:</label><br>
+      <input type="radio" id="pension" name="pension" value="0">
+      <label for="pension">No Pension</label><br>
+      <input type="radio" id="pension" name="pension" value="1">
+      <label for="pension">Pension by an actions</label><br>
+      <input type="radio" id="pension" name="pension" value="2">
+      <label for="pension">Pension by age</label><br><br>
 
       <label for="disability">Disability:</label><br>
-
       <input type="radio" id="disability" name="disability" value="0">
       <label for="disability">0</label><br>
       <input type="radio" id="disability" name="disability" value="3">
@@ -22,6 +29,7 @@
       <label for="disability">2</label><br>
       <input type="radio" id="disability" name="disability" value="1">
       <label for="disability">1</label><br><br>
+
 
       <input type="submit" value="Calculate">
     </form>
