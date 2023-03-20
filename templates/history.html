@@ -1,0 +1,58 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>History</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 16px;
+      }
+      th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      td {
+        padding: 12px;
+        border: 1px solid #ddd;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+</style>
+  </head>
+  <body>
+    <h1>History</h1>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Salary</th>
+        <th>Number of Dependents</th>
+        <th>Pension Type</th>
+        <th>Disability Level</th>
+        <th>Employer's Expenses</th>
+        <th>Tax Amount</th>
+        <th>Net Salary</th>
+      </tr>
+      {% for calculation in calculations %}
+      <tr>
+        <td>{{ calculation.created_at.strftime('%d.%m.%Y %H:%M:%S') }}</td>
+        <td>{{ calculation.salary }}</td>
+        <td>{{ calculation.num_dependents }}</td>
+        <td>{{ calculation.pension_type }}</td>
+        <td>{{ calculation.disability_level }}</td>
+        <td>{{ calculation.employers_expenses }}</td>
+        <td>{{ calculation.tax_amount }}</td>
+        <td>{{ calculation.salary_netto }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+  </body>
+</html>

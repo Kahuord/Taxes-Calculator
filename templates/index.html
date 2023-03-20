@@ -2,34 +2,71 @@
 <html>
   <head>
     <title>Salary Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 30px;
+      }
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      }
+      label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        display: block;
+      }
+      input[type="number"], input[type="radio"] {
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 15px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      }
+      input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
   </head>
   <body>
     <h1>Salary Calculator</h1>
     <form method="POST" action="/">
-      <label for="salary">Salary (EUR):</label><br>
-      <input type="number" id="salary" name="salary" required><br><br>
+      <label for="salary">Salary (EUR):</label>
+      <input type="number" id="salary" name="salary" required>
 
-      <label for="izv">Number of dependents:</label><br>
-      <input type="number" id="izv" name="izv" required><br><br>
+      <label for="izv">Number of dependents:</label>
+      <input type="number" id="izv" name="izv" required>
 
-      <label for="pension">Pension:</label><br>
-      <input type="radio" id="pension" name="pension" value="0">
-      <label for="pension">No Pension</label><br>
-      <input type="radio" id="pension" name="pension" value="1">
-      <label for="pension">Pension by an actions</label><br>
-      <input type="radio" id="pension" name="pension" value="2">
-      <label for="pension">Pension by age</label><br><br>
+      <label>Pension:</label>
+      <label><input type="radio" id="pension" name="pension" value="0">No Pension</label>
+      <label><input type="radio" id="pension" name="pension" value="1">Pension by an actions</label>
+      <label><input type="radio" id="pension" name="pension" value="2">Pension by age</label>
 
-      <label for="disability">Disability:</label><br>
-      <input type="radio" id="disability" name="disability" value="0">
-      <label for="disability">0</label><br>
-      <input type="radio" id="disability" name="disability" value="3">
-      <label for="disability">3</label><br>
-      <input type="radio" id="disability" name="disability" value="2">
-      <label for="disability">2</label><br>
-      <input type="radio" id="disability" name="disability" value="1">
-      <label for="disability">1</label><br><br>
-
+      <label>Disability:</label>
+      <label><input type="radio" id="disability" name="disability" value="0">0</label>
+      <label><input type="radio" id="disability" name="disability" value="3">3</label>
+      <label><input type="radio" id="disability" name="disability" value="2">2</label>
+      <label><input type="radio" id="disability" name="disability" value="1">1</label>
 
       <input type="submit" value="Calculate">
     </form>

@@ -2,12 +2,39 @@
 <html>
   <head>
     <title>Salary Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .result {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .result p {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <h1>Salary Calculator</h1>
-    <p>Salary: {{ salary }} EUR</p>
-    <p>Employers expenses: {{ employers_expenses }} EUR</p>
-    <p>Tax amount: {{ tax_amount }} EUR</p>
-    <p>Net salary: {{ salary_Netto }} EUR</p>
+    <div class="result">
+      <p>Salary: {{ salary }} EUR</p>
+      <p>Employers expenses: {{ employers_expenses }} EUR</p>
+      <p>Tax amount: {{ tax_amount }} EUR</p>
+      <p>Net salary: {{ salary_Netto }} EUR</p>
+    </div>
   </body>
 </html>
