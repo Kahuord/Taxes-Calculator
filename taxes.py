@@ -1,4 +1,4 @@
-#как перевести ежемесячную зарплату Брутто в Нетто
+#kā pārvērst mēneša algu bruto uz neto
 podohod_nalog_salary = 1667
 min_salary = 620
 sos_nalog = 0.105
@@ -30,6 +30,7 @@ def calculate_salary_izv_voz_inv(salary, izv, voz, inv):
         nalog_s_summi_boljshe_1667 = 0
         a = salary - salary_sos_nalog - izv_nolog - inv_nalog
         a = ((a*a)**(1/2)+a)/2
+
     elif salary > podohod_nalog_salary:
         podohod_nalog = 0.2
         a = podohod_nalog_salary - salary_sos_nalog - izv_nolog - inv_nalog
@@ -38,6 +39,7 @@ def calculate_salary_izv_voz_inv(salary, izv, voz, inv):
 
     nalog_s_summi_1667 = a * podohod_nalog
     salary_Netto = salary-salary_sos_nalog-nalog_s_summi_1667-nalog_s_summi_boljshe_1667
+
     return salary_Netto
 
 
