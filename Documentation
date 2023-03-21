@@ -83,8 +83,8 @@ logout - lietotāja atteikšanās
 
 Классы для создания баз данных 
 
-Users 
+Users - datu bāze ar ID, pieteikšanos, pastu, šifrētu paroli
 
-TaxCalculation
+TaxCalculation - datubāze ar id, lietotāja ID, alga, apgādājamo skaits, pensijas veids, invaliditātes līmenis, darba devēja izmaksas, bruto alga, neto alga, šo datu izveidošanas datums
 
 
