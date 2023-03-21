@@ -56,5 +56,9 @@ kā arī vēstures tabulas izveide var palīdzēt uzlabot uzņēmuma efektivitā
 Programmatūras produkta un tā funkciju apraksts
 
 Programmai papildus vietnes izveidei ir arī šādas funkcijas:
+1. calculate_salary_izv_voz_inv 
+funkcija, kas aprēķina nodokļus no bruto algas, pamatojoties uz apgādājamo skaitu, 
+invaliditāti un pensiju, un atgriež neto algu
 
+2. 
 
