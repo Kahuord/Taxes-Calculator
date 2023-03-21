@@ -3,7 +3,7 @@ Tēma - Mēneša bruto algas pārskaitīšana uz neto ērtā veidā, kā arī j�
 
 
 
-113
+
 
 
 Autors: Aleksandrs Ivanovs 12.a
@@ -36,9 +36,25 @@ bet pat viņam ir, manā viedoklis, lieki mainīgie un nav aprēķinu vēstures.
 Un es gribēju izveidot savu strādājošu, ērtu, skaistu vietni ar reģistrācijas, autorizācijas un aprēķinu vēstures izvadi
 
 
-*Problēmas izpēte un analīze
 Problēmas risinājuma apraksts:
 
 Lai atrisinātu šo problēmu, es nolēmu izveidot savu vietni programmā python, 
 izmantojot flask bibliotēku, lai izveidotu vietni un flask-sqlalchemy, lai izveidotu šīs vietnes datubāzi.
 Es arī pievienoju reģistrāciju un autorizāciju, pateicoties flask_login un datubāzei
+
+
+
+*Programmatūras prasību specifikācija
+Mērķauditorija
+
+Mērķauditorija var būt ikviens darba devējs un darba ņēmējs Latvijā.  
+To var labi izmantot arī grāmatveži, lai izpētītu visu aprēķinu vēsturi.
+Mēneša bruto algas konvertēšanas uz neto algu un darba devēja izmaksu uzrādīšanas automatizācija, 
+kā arī vēstures tabulas izveide var palīdzēt uzlabot uzņēmuma efektivitāti un nedaudz atvieglot grāmatvežu darbu.
+
+
+Programmatūras produkta un tā funkciju apraksts
+
+Programmai papildus vietnes izveidei ir arī šādas funkcijas:
+
+
