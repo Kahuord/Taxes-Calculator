@@ -1,0 +1,44 @@
+Tēma - Mēneša bruto algas pārskaitīšana uz neto ērtā veidā, kā arī jūsu aprēķinu vēstures veicināšana
+
+
+
+
+
+
+
+Autors: Aleksandrs Ivanovs 12.a
+2022./2023. m.g.
+
+
+
+
+Saturs:
+1 - Problēmas izpēte un analīze
+    Problēmas apraksts
+    Problēmas risinājuma apraksts
+2 - Programmatūras prasību specifikācija
+    Mērķauditorija
+    Programmatūras produkta un tā funkciju apraksts
+    Programmatūras produkta skice
+3 - Programmatūras izstrades plāns
+    Programmēšanas valodas izvēle
+4 - Lietotāja ceļvedis
+5 - Piemērotas licences pamatojums
+6 - Programmatūras kods
+
+
+*Problēmas izpēte un analīze
+Problēmas apraksts:
+
+Meklējot ērtu resursu mēneša bruto algas konvertēšanai uz Neto Latvijā, 
+es izmēģināju daudzas vietnes un tikai viena no tām man šķita ērta "https://kalkulatori.lv/pašnodarbinātais", 
+bet pat viņam ir, manā viedoklis, lieki mainīgie un nav aprēķinu vēstures.
+Un es gribēju izveidot savu strādājošu, ērtu, skaistu vietni ar reģistrācijas, autorizācijas un aprēķinu vēstures izvadi
+
+
+*Problēmas izpēte un analīze
+Problēmas risinājuma apraksts:
+
+Lai atrisinātu šo problēmu, es nolēmu izveidot savu vietni programmā python, 
+izmantojot flask bibliotēku, lai izveidotu vietni un flask-sqlalchemy, lai izveidotu šīs vietnes datubāzi.
+Es arī pievienoju reģistrāciju un autorizāciju, pateicoties flask_login un datubāzei
