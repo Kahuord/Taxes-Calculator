@@ -64,5 +64,27 @@ invaliditāti un pensiju, un atgriež neto algu
 funkcija, kas nosaka, cik daudz darba devējs maksā, pamatojoties uz bruto algu un invaliditātes pakāpi
 
 funkcijas, ko izmanto vietnes izveidei:
+salary_calculator - datu ievade aprēķiniem un to izvade neto, bruto algas un darba devēja izdevumu veidā
+
+register - reģistrējot jaunu lietotāju un ierakstot to datu bāzē
+
+load_user - pārbaudiet, vai lietotājs pastāv
+
+load_user_from_request - lietotājs ielādējas ar sīkfailiem
+
+login - lietotāja pieteikšanās
+
+history - parāda lietotāja norēķinu vēstures tabulu
+
+users - parādīt visu lietotāju datus
+
+logout - lietotāja atteikšanās
+
+
+Классы для создания баз данных 
+
+Users 
+
+TaxCalculation
 
 
