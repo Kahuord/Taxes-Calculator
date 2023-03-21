@@ -60,5 +60,9 @@ Programmai papildus vietnes izveidei ir arī šādas funkcijas:
 funkcija, kas aprēķina nodokļus no bruto algas, pamatojoties uz apgādājamo skaitu, 
 invaliditāti un pensiju, un atgriež neto algu
 
-2. 
+2. value_rabotofatela
+funkcija, kas nosaka, cik daudz darba devējs maksā, pamatojoties uz bruto algu un invaliditātes pakāpi
+
+funkcijas, ko izmanto vietnes izveidei:
+
 
