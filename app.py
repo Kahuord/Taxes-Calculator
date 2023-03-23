@@ -17,17 +17,20 @@ poslina_riska_rabotofatela = 0.36
 #Šeit tiek definēts SQLAlchemy datubāzes modelis.
 Base = sqlalchemy.orm.declarative_base()
 
+#Šeit tiek inicializēts Flask lietotne un definēti tās konfigurācijas iestatījumi.
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.db'
 app.config['SQLALCHEMY_BINDS'] = {'tax_calculation': 'sqlite:///TaxCalculation.db'}
 db = SQLAlchemy(app, model_class=Base)
 bcrypt = Bcrypt(app)
 
+#Šeit tiek definēts LoginManager, kas ļaus lietotājiem pierakstīties un izrakstīties no sistēmas.
 login_manager = LoginManager()
 app.config['SECRET_KEY'] = 'ALKUZJA1200418'
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+#Šeit tiek definēts lietotāju modelis, kas tiks izmantots SQLAlchemy datubāzē.
 class User(UserMixin, db.Model):
     __tablename__ = 'Users'
 
@@ -39,6 +42,7 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
+#Šeit tiek definēts nodokļu aprēķina modelis, kas tiks izmantots SQLAlchemy datubāzē.
 class TaxCalculation(db.Model):
     __tablename__ = 'TaxCalculation'
     bind_key = 'tax_calculation'
@@ -54,16 +58,19 @@ class TaxCalculation(db.Model):
     salary_netto = db.Column(db.Float)
     created_at = db.Column(db.DateTime, default=datetime.now)
 
+#Šeit tiek izveidota datubāze, ja tā vēl neeksistē.
 with app.app_context():
     db.create_all()
 
 #Šeit tiek definēta funkcija, kas pievieno nodokļu aprēķina datus datubāzei.
 def add_tax_calculation(user_id, salary, num_dependents, pension_type, disability_level,
                         employers_expenses, tax_amount, salary_netto):
+
     new_calculation = TaxCalculation(user_id=user_id, salary=salary, num_dependents=num_dependents,
                                      pension_type=pension_type, disability_level=disability_level,
                                      employers_expenses=employers_expenses, tax_amount=tax_amount,
                                      salary_netto=salary_netto)
+
     db.session.add(new_calculation)
     db.session.commit()
 
