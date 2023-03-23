@@ -1,10 +1,6 @@
-# By_GPT_TaxesCalculate
-Taxes Calсulated code created by chatGPT
-I just came up with an idea and added some code
-
-There calculated taxes to Latvia
-
-Just install a venv and start app.py file, then go to http://127.0.0.1:5000 and enjoy
+#TaxesCalculator
+Taxes Calсulated code created for admission to the exam
 
 
-math_test.py was created to test chatGPT abilities 
+That is tax calculator for Latvia
+Just install a venv with all libraries from the beginning of the file "app.py", then start this file and go to http://127.0.0.1:5000 and enjoy
