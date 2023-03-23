@@ -17,22 +17,17 @@ poslina_riska_rabotofatela = 0.36
 #Šeit tiek definēts SQLAlchemy datubāzes modelis.
 Base = sqlalchemy.orm.declarative_base()
 
-#Šeit tiek inicializēts Flask lietotne un definēti tās konfigurācijas iestatījumi.
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Users.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///TaxCalculation.db'
+app.config['SQLALCHEMY_BINDS'] = {'tax_calculation': 'sqlite:///TaxCalculation.db'}
 db = SQLAlchemy(app, model_class=Base)
 bcrypt = Bcrypt(app)
 
-#Šeit tiek definēts LoginManager, kas ļaus lietotājiem pierakstīties un izrakstīties no sistēmas.
 login_manager = LoginManager()
 app.config['SECRET_KEY'] = 'ALKUZJA1200418'
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
-
-
-#Šeit tiek definēts lietotāju modelis, kas tiks izmantots SQLAlchemy datubāzē.
 class User(UserMixin, db.Model):
     __tablename__ = 'Users'
 
@@ -44,22 +39,21 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}')"
 
-#Šeit tiek definēts nodokļu aprēķina modelis, kas tiks izmantots SQLAlchemy datubāzē.
 class TaxCalculation(db.Model):
     __tablename__ = 'TaxCalculation'
+    bind_key = 'tax_calculation'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('Users.id'))
-    salary = Column(Float)
-    num_dependents = Column(Integer)
-    pension_type = Column(Integer)
-    disability_level = Column(Integer)
-    employers_expenses = Column(Float)
-    tax_amount = Column(Float)
-    salary_netto = Column(Float)
-    created_at = Column(DateTime, default=datetime.now)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('Users.id'))
+    salary = db.Column(db.Float)
+    num_dependents = db.Column(db.Integer)
+    pension_type = db.Column(db.Integer)
+    disability_level = db.Column(db.Integer)
+    employers_expenses = db.Column(db.Float)
+    tax_amount = db.Column(db.Float)
+    salary_netto = db.Column(db.Float)
+    created_at = db.Column(db.DateTime, default=datetime.now)
 
-#Šeit tiek izveidota datubāze, ja tā vēl neeksistē.
 with app.app_context():
     db.create_all()
 
@@ -72,7 +66,6 @@ def add_tax_calculation(user_id, salary, num_dependents, pension_type, disabilit
                                      salary_netto=salary_netto)
     db.session.add(new_calculation)
     db.session.commit()
-
 
 
 @app.route('/', methods=['GET', 'POST']) #Pievienojiet funkciju 'salary_calculator' šai adreses trasei
@@ -93,7 +86,7 @@ def salary_calculator():
             pension = int(request.form.get('pension'))
 
 
-        if request.form.get('izv') == None: #Pārbauda, vai nav sociālās apdrošināšanas izvēlēta no formas, ja tā, tad izv ir 0
+        if request.form.get('izv') == None or request.form.get('izv') == '': #Pārbauda, vai nav sociālās apdrošināšanas izvēlēta no formas, ja tā, tad izv ir 0
             izv = 0
         else: #Ja sociālā apdrošināšana ir izvēlēta no formas, saņem to
             izv = int(request.form.get('izv'))

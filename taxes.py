@@ -24,15 +24,14 @@ def calculate_salary_izv_voz_inv(salary, izv, voz, inv):
         inv_nalog = 120
 
     salary_sos_nalog = salary * sos_nalog
+    podohod_nalog = 0.2
 
     if salary <= podohod_nalog_salary:
-        podohod_nalog = 0.23
         nalog_s_summi_boljshe_1667 = 0
         a = salary - salary_sos_nalog - izv_nolog - inv_nalog
         a = ((a*a)**(1/2)+a)/2
 
     elif salary > podohod_nalog_salary:
-        podohod_nalog = 0.2
         a = podohod_nalog_salary - salary_sos_nalog - izv_nolog - inv_nalog
         a = ((a * a) ** (1 / 2) + a) / 2
         nalog_s_summi_boljshe_1667 = (salary - podohod_nalog_salary) * 0.23
